@@ -65,7 +65,7 @@ const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onBack }) => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
                 {/* LEFT VIEWPORT PANEL: Reader Conversation Timeline */}
-                <div className="lg:col-span-5 bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col h-[600px]">
+                <div className="lg:col-span-5 bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col h-150">
                     <h2 className="text-lg font-bold border-b border-gray-100 pb-3 flex justify-between items-center text-black">
                         <span>Reader Discussion</span>
                         <span className="text-xs bg-slate-100 text-slate-600 py-0.5 px-2 rounded-full font-semibold">
@@ -102,7 +102,7 @@ const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onBack }) => {
 
                                     {/* Line 2: Comment Content Body Text — ✅ Linked to comment.commentText */}
                                     <div className="bg-white p-2.5 rounded border border-gray-100 mt-1">
-                                        <p className="text-gray-800 font-medium text-sm whitespace-pre-wrap break-words">
+                                        <p className="text-gray-800 font-medium text-sm whitespace-pre-wrap wrap-break-word">
                                             {comment.commentText || "Empty comment content"}
                                         </p>
                                     </div>
@@ -113,7 +113,7 @@ const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onBack }) => {
                 </div>
 
                 {/* RIGHT VIEWPORT PANEL: Article Display Canvas */}
-                <div className="lg:col-span-7 bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-6 overflow-y-auto h-[600px]">
+                <div className="lg:col-span-7 bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-6 overflow-y-auto h-150">
                     {post.image && post.image !== 'example.com' && (
                         <div className="w-full h-56 rounded-lg overflow-hidden border border-gray-100">
                             <img src={post.image} alt={post.title} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
@@ -128,7 +128,7 @@ const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onBack }) => {
                         </div>
                     </div>
 
-                    <div className="prose max-w-none text-gray-800 leading-relaxed text-sm lg:text-base break-words" dangerouslySetInnerHTML={{ __html: post.content }} />
+                    <div className="prose max-w-none text-gray-800 leading-relaxed text-sm lg:text-base wrap-break-word" dangerouslySetInnerHTML={{ __html: post.content }} />
                 </div>
 
             </div>

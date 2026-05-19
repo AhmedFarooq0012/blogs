@@ -7,7 +7,8 @@ import UpdateProfile from "@/components/updateprofile";
 
 const Page = () => {
   // 'blogs' is selected by default when the user opens the dashboard
-  const [activeView, setActiveView] = useState<"blogs" | "profile">("blogs");
+  const [activeView, setActiveView] = useState<"blogs" | "profile" | "published" | "drafts" | "create">("blogs");
+
 
   return (
     <div className="min-h-screen bg-slate-950 text-white flex flex-col">
@@ -18,7 +19,7 @@ const Page = () => {
       <div className="flex flex-1 relative">
         {/* Fixed Left Sidebar - Passing state controllers down */}
         <div className="hidden md:block">
-          <Sidebar activeView={activeView} setActiveView={setActiveView} />
+          <Sidebar />
         </div>
 
         {/* Flexible Right Main Content Viewport */}
